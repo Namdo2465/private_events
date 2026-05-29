@@ -6,3 +6,11 @@
 <p><strong>Creator:</strong> <%= @event.creator.email %></p>
 
 <%= link_to "Back to Events", events_path %>
+
+<% if user_signed_in? %>
+  <%= button_to "Attend this event",
+      event_attendances_path(event_id: @event.id),
+      method: :post %>
+<% else %>
+  <%= link_to "Sign in to attend", new_user_session_path %>
+<% end %>
