@@ -14,3 +14,15 @@
 <% else %>
   <%= link_to "Sign in to attend", new_user_session_path %>
 <% end %>
+
+<h2>Attendees</h2>
+
+<% if @event.attendees.any? %>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+      <li><%= attendee.email %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No attendees yet.</p>
+<% end %>

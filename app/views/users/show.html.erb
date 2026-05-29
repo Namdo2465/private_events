@@ -11,3 +11,15 @@
 <% else %>
   <p>This user has not created any events yet.</p>
 <% end %>
+
+<h2>Attending Events:</h2>
+
+<% if @attended_events.any? %>
+  <ul>
+    <% @attended_events.each do |event| %>
+      <li><%= event.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No events yet.</p>
+<% end %>
